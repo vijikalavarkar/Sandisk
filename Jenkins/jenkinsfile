@@ -1,0 +1,25 @@
+pipeline{
+    agent{
+        label 'test'
+    }
+
+    stages{
+        stage('Memory'){
+            steps{
+                sh "free -h"
+            }
+        }
+
+        stage('Disk'){
+            steps{
+                sh "df -kh"
+            }
+        }
+
+        stage('Hostname'){
+            steps{
+                sh "hostname"
+            }
+        }
+    }
+}
